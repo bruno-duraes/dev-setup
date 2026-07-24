@@ -13,11 +13,16 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Auto-provisionamento: Se não estivermos em uma pasta git, clona o repositório
 if [ ! -d "$SCRIPT_DIR/.git" ]; then
-    echo "Repositório não detectado. Preparando ambiente para clonagem..."
+    echo "Repositório não detectado. Preparando ambiente para clonagem em /projetos..."
     sudo apt-get update -qq
     sudo apt-get install -y -qq git curl
-    git clone https://github.com/bruno-duraes/dev-setup.git /tmp/dev-setup
-    cd /tmp/dev-setup
+
+    # Criar pasta /projetos caso não exista e garantir permissões
+    sudo mkdir -p /projetos
+    sudo chown "$USER:$USER" /projetos
+    
+    git clone https://github.com/bruno-duraes/dev-setup.git /projetos/dev-setup
+    cd /projetos/dev-setup
     exec ./install.sh
 fi
 
