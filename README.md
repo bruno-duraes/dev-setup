@@ -18,12 +18,3 @@ Para configurar todo o seu ambiente em uma máquina nova (recém-formatada) com 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/bruno-duraes/dev-setup/main/install.sh)
 ```
-
-Ou, se preferir clonar manualmente o repositório:
-
-```bash
-git clone https://github.com/bruno-duraes/dev-setup.git
-cd dev-setup
-chmod +x install.sh
-./install.sh
-```
