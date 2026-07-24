@@ -22,15 +22,15 @@ install_java() {
         curl -s "https://get.sdkman.io" | bash
     fi
 
-    # Carrega o SDKMAN para o shell atual
-    export SDKMAN_DIR="$HOME/.sdkman"
-    [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && \. "$SDKMAN_DIR/bin/sdkman-init.sh"
+    # Carrega e usa o SDKMAN em um subshell sem nounset
+    (
+        set +u
+        export SDKMAN_DIR="$HOME/.sdkman"
+        [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
-    log_info "Instalando a versão Java LTS mais recente via SDKMAN..."
-    
-    # O SDKMAN identifica automaticamente a versão LTS atual (ex: 25, 26, 27...)
-    # Usamos 'java' sem versão específica para buscar a recomendada ou configuramos o alias
-    sdk install java 25-tem 
+        log_info "Instalando a versão Java LTS mais recente via SDKMAN..."
+        sdk install java 25-tem 
+    ) 
     
     log_success "Java instalado com sucesso via SDKMAN."
 }

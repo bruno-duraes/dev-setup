@@ -23,12 +23,15 @@ install_nodejs() {
     fi
 
     # Carregar nvm para o shell atual
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    (
+        set +u
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-    log_info "Instalando Node.js (LTS)..."
-    nvm install --lts
-    nvm use --lts
+        log_info "Instalando Node.js (LTS)..."
+        nvm install --lts
+        nvm use --lts
+    )
 
     log_success "Node.js instalado via NVM com sucesso! Versão: $(node -v)"
 }
