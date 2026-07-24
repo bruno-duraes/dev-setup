@@ -9,6 +9,7 @@ O `dev-setup` automatiza a instalação de ferramentas essenciais, linguagens de
 - **Sistema:** Git, cURL, Build-Essential, htop, tree, jq e mais.
 - **Containers:** Docker Engine e Docker Compose.
 - **Linguagens:** Node.js (via NVM) e Java (via SDKMAN).
+- **IA:** Gemini CLI.
 - **Aplicativos:** VS Code, IntelliJ IDEA Community, DBeaver, Postman e Google Chrome.
 
 ## 🚀 Utilização
