@@ -16,7 +16,7 @@ if [ ! -d "$SCRIPT_DIR/.git" ]; then
     echo "Repositório não detectado. Preparando ambiente para clonagem..."
     sudo apt-get update -qq
     sudo apt-get install -y -qq git curl
-    git clone https://github.com/seu-usuario/dev-setup.git /tmp/dev-setup
+    git clone https://github.com/bruno-duraes/dev-setup.git /tmp/dev-setup
     cd /tmp/dev-setup
     exec ./install.sh
 fi
