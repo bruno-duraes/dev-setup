@@ -31,9 +31,8 @@ install_nodejs() {
         log_info "Instalando Node.js (LTS)..."
         nvm install --lts
         nvm use --lts
+        log_success "Node.js instalado via NVM com sucesso! Versão: $(node -v)"
     )
-
-    log_success "Node.js instalado via NVM com sucesso! Versão: $(node -v)"
 }
 
 main() {

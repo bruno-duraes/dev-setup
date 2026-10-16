@@ -126,6 +126,7 @@ main() {
 
     # Execução sequencial dos módulos
     run_subscript "$SCRIPT_DIR/scripts/tools.sh"
+    run_subscript "$SCRIPT_DIR/scripts/languages/nodejs.sh"
     
     log_info "Executando módulos de aplicativos..."
     for app_script in "$SCRIPT_DIR"/scripts/apps/*.sh; do
@@ -133,7 +134,6 @@ main() {
     done
 
     run_subscript "$SCRIPT_DIR/scripts/languages/java.sh"
-    run_subscript "$SCRIPT_DIR/scripts/languages/nodejs.sh"
 
     echo -e "\n${BOLD}${GREEN}"
     echo "================================================="
